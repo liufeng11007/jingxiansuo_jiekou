@@ -1,0 +1,44 @@
+# 定义区域名:
+excel:
+  # 选项名: 选项值
+  # 如果选项值为数字，那么会自动转化为数字类型（int、float）
+  # 如果选项值为true、on、True，那么会自动转化为True
+  # 如果选项值为false、off、False，那么会自动转化为False
+  # 其他有字母的，读取出来都为字符串类型
+#  filename: testcase.xlsx
+#  filename: testall_staging.xlsx
+  filename: testall_online.xlsx
+  real_result_column: 7
+  result_column: 8
+
+api:
+  headers: { "Accept" :"application/json"}
+  Content-Type: "application/json; charset=utf-8"
+  # 指定公钥名称
+  public_key_filename: "key.pub"
+#  staging_url
+#  base_url: 'https://baize-api.staging.ukuaiqi.com'
+#  产品环境_url
+  base_url: 'https://baize-api.jingxiansuo.com'
+
+report:
+  filename: "精线索接口测试报告"
+  verbosity: 1
+  title: 精线索测试环境接口测试报告
+  description: 所有接口的正向接口测试报告
+  tester: 刘锋
+
+log:
+  logger_level: "DEBUG"
+  log_filename: "testcase.log"
+
+mysql:
+  host: "api.lemonban.com"
+  user: "future"
+  password: "123456"
+  db: "futureloan"
+  port: 3306
+  select_user_sql: "SELECT mobile_phone FROM member WHERE mobile_phone=%s;"
+  select_userid_sql: "SELECT id FROM member WHERE mobile_phone=%s;"
+  select_max_userid_sql: "SELECT id FROM member ORDER BY id DESC LIMIT 0,1;"
+  select_max_loan_id_sql: "SELECT id FROM loan ORDER BY id DESC LIMIT 0,1;"
